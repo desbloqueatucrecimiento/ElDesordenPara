@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía Gratuita del Desorden · Desbloquea tu Crecimiento</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700;1,9..144,900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#08090f;
+  --paper:#f8f5ee;
+  --cream:#eef1f8;
+  --soft:#d4dcf0;
+  --muted:#5a6a8a;
+  --faint:#8a9ab8;
+  --accent:#1a4fd6;
+  --accent-dark:#1340b0;
+  --accent-light:#e8effe;
+  --yellow:#f5d84a;
+}
+
+html{font-size:16px;scroll-behavior:smooth}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--ink);
+  color:var(--paper);
+  line-height:1.7;
+  min-height:100vh;
+}
+
+/* ── GRAIN OVERLAY ── */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:0;opacity:.4;
+}
+
+/* ── LAYOUT ── */
+.page{
+  position:relative;z-index:1;
+  max-width:1100px;margin:0 auto;
+  padding:0 24px 80px;
+}
+
+/* ── TOP BAR ── */
+.topbar{
+  padding:24px 0 0;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid rgba(248,245,238,.08);
+  padding-bottom:20px;
+  margin-bottom:0;
+}
+.brand{
+  font-family:'Fraunces',serif;
+  font-size:14px;font-weight:900;letter-spacing:-.01em;
+}
+.brand em{font-style:italic;color:var(--accent)}
+.badge-free{
+  font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;
+  background:var(--accent);color:#fff;
+  padding:5px 14px;border-radius:2px;
+}
+
+/* ── HERO ── */
+.hero{
+  display:grid;
+  grid-template-columns:1fr 440px;
+  gap:80px;
+  align-items:center;
+  padding:72px 0 64px;
+  border-bottom:1px solid rgba(248,245,238,.08);
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:24px;
+}
+.hero-eyebrow::before{
+  content:'';display:block;
+  width:28px;height:1.5px;background:var(--accent);
+}
+.hero h1{
+  font-family:'Fraunces',serif;
+  font-size:clamp(44px,5.5vw,72px);
+  font-weight:900;line-height:.95;
+  letter-spacing:-.03em;
+  margin-bottom:24px;
+}
+.hero h1 em{
+  font-style:italic;color:var(--yellow);
+}
+.hero-sub{
+  font-size:18px;font-weight:300;
+  color:rgba(248,245,238,.65);
+  line-height:1.6;max-width:480px;
+  margin-bottom:40px;
+}
+.hero-sub strong{color:var(--paper);font-weight:500}
+
+/* PROOF PILLS */
+.proof{
+  display:flex;gap:10px;flex-wrap:wrap;
+  margin-bottom:0;
+}
+.pill{
+  display:flex;align-items:center;gap:7px;
+  font-size:13px;color:rgba(248,245,238,.55);
+  border:1px solid rgba(248,245,238,.12);
+  padding:7px 14px;border-radius:2px;
+}
+.pill::before{
+  content:'';display:block;
+  width:6px;height:6px;border-radius:50%;
+  background:var(--accent);flex-shrink:0;
+}
+
+/* ── FORM CARD ── */
+.form-card{
+  background:var(--paper);
+  color:var(--ink);
+  padding:40px 36px;
+  border-radius:4px;
+  position:relative;
+}
+.form-card::before{
+  content:'';
+  position:absolute;top:-3px;left:0;right:0;height:3px;
+  background:var(--accent);border-radius:4px 4px 0 0;
+}
+.form-tag{
+  font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:16px;display:block;
+}
+.form-card h2{
+  font-family:'Fraunces',serif;
+  font-size:24px;font-weight:900;line-height:1.1;
+  letter-spacing:-.02em;color:var(--ink);
+  margin-bottom:8px;
+}
+.form-card p{
+  font-size:14px;color:var(--muted);
+  margin-bottom:28px;line-height:1.5;
+}
+
+/* PHOTO SLOT */
+.photo-slot{
+  width:72px;height:72px;border-radius:50%;
+  background:var(--soft);
+  border:2px dashed var(--faint);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px;
+  font-size:11px;color:var(--faint);text-align:center;
+  line-height:1.3;overflow:hidden;
+}
+.photo-slot img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+
+.form-label{
+  display:block;
+  font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:6px;
+}
+.form-input{
+  width:100%;
+  padding:14px 16px;
+  border:1.5px solid var(--soft);
+  border-radius:3px;
+  font-family:'DM Sans',sans-serif;
+  font-size:15px;color:var(--ink);
+  background:var(--paper);
+  outline:none;
+  transition:border-color .15s;
+  margin-bottom:12px;
+}
+.form-input:focus{border-color:var(--accent)}
+.form-input::placeholder{color:var(--faint)}
+
+.form-btn{
+  width:100%;
+  padding:16px;
+  background:var(--yellow);
+  color:var(--ink);
+  border:none;
+  border-radius:3px;
+  font-family:'Fraunces',serif;
+  font-size:17px;font-weight:900;
+  letter-spacing:-.01em;
+  cursor:pointer;
+  transition:background .15s,transform .1s;
+  margin-top:4px;
+}
+.form-btn:hover{background:#e8cc3a;transform:translateY(-1px)}
+.form-btn:active{transform:translateY(0)}
+
+.form-privacy{
+  font-size:11px;color:var(--faint);
+  text-align:center;margin-top:14px;
+  line-height:1.5;
+}
+
+/* ── WHAT'S INSIDE ── */
+.inside{
+  padding:72px 0 64px;
+  border-bottom:1px solid rgba(248,245,238,.08);
+}
+.inside-label{
+  font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:32px;display:block;
+}
+.inside h2{
+  font-family:'Fraunces',serif;
+  font-size:clamp(28px,4vw,42px);font-weight:900;line-height:1.05;
+  letter-spacing:-.025em;margin-bottom:48px;
+  max-width:560px;
+}
+.inside h2 em{font-style:italic;color:var(--yellow)}
+
+.inside-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:2px;
+  background:rgba(248,245,238,.06);
+  border:1px solid rgba(248,245,238,.08);
+}
+.inside-item{
+  padding:28px 24px;
+  background:rgba(248,245,238,.03);
+  transition:background .15s;
+}
+.inside-item:hover{background:rgba(248,245,238,.06)}
+.inside-num{
+  font-family:'Fraunces',serif;
+  font-size:13px;font-weight:700;
+  color:var(--accent);
+  margin-bottom:12px;display:block;
+}
+.inside-item h3{
+  font-family:'Fraunces',serif;
+  font-size:16px;font-weight:700;
+  letter-spacing:-.01em;
+  margin-bottom:8px;color:var(--paper);
+}
+.inside-item p{
+  font-size:13px;color:rgba(248,245,238,.5);
+  line-height:1.5;margin:0;
+}
+
+/* ── FOR YOU ── */
+.foryou{
+  padding:72px 0 64px;
+  border-bottom:1px solid rgba(248,245,238,.08);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:start;
+}
+.foryou-label{
+  font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:24px;display:block;
+}
+.foryou h2{
+  font-family:'Fraunces',serif;
+  font-size:clamp(26px,3.5vw,38px);font-weight:900;line-height:1.05;
+  letter-spacing:-.025em;margin-bottom:0;
+}
+.foryou h2 em{font-style:italic;color:var(--yellow)}
+.foryou-list{list-style:none;display:grid;gap:2px}
+.foryou-item{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:16px 0;
+  border-bottom:1px solid rgba(248,245,238,.07);
+  font-size:15px;color:rgba(248,245,238,.75);
+  line-height:1.5;
+}
+.foryou-item:last-child{border-bottom:none}
+.foryou-item::before{
+  content:'';
+  display:block;
+  width:6px;height:6px;border-radius:50%;
+  background:var(--accent);
+  flex-shrink:0;margin-top:8px;
+}
+
+/* ── QUOTE BLOCK ── */
+.quote-block{
+  padding:72px 0 64px;
+  border-bottom:1px solid rgba(248,245,238,.08);
+  display:grid;
+  grid-template-columns:4px 1fr;
+  gap:36px;
+  align-items:start;
+}
+.quote-line{background:var(--accent);border-radius:2px}
+.quote-text{
+  font-family:'Fraunces',serif;
+  font-size:clamp(22px,3vw,34px);
+  font-weight:700;font-style:italic;
+  line-height:1.3;
+  color:rgba(248,245,238,.9);
+  margin-bottom:20px;
+}
+.quote-author{
+  font-size:13px;color:rgba(248,245,238,.4);
+  letter-spacing:.05em;
+}
+
+/* ── BOTTOM CTA ── */
+.bottom-cta{
+  padding:72px 0 0;
+  display:grid;
+  grid-template-columns:1fr 440px;
+  gap:80px;
+  align-items:center;
+}
+.bottom-cta h2{
+  font-family:'Fraunces',serif;
+  font-size:clamp(32px,4vw,52px);font-weight:900;line-height:1;
+  letter-spacing:-.03em;margin-bottom:16px;
+}
+.bottom-cta h2 em{font-style:italic;color:var(--yellow)}
+.bottom-cta p{
+  font-size:16px;color:rgba(248,245,238,.55);
+  font-weight:300;line-height:1.6;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.hero-left > *{
+  animation:fadeUp .6s ease both;
+}
+.hero-eyebrow{animation-delay:.1s}
+.hero h1{animation-delay:.2s}
+.hero-sub{animation-delay:.3s}
+.proof{animation-delay:.4s}
+.form-card{animation:fadeUp .6s ease .2s both}
+
+/* ── RESPONSIVE ── */
+@media(max-width:800px){
+  .hero,.bottom-cta{grid-template-columns:1fr}
+  .hero{gap:48px;padding:48px 0 40px}
+  .form-card{padding:28px 24px}
+  .inside-grid{grid-template-columns:1fr}
+  .foryou{grid-template-columns:1fr;gap:40px}
+  .bottom-cta{gap:40px}
+  .quote-block{grid-template-columns:3px 1fr;gap:24px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="brand"><em>Desbloquea</em> tu Crecimiento</div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-left">
+      <h1>El desorden<br><em>para.</em><br>Tú, no.</h1>
+      <p class="hero-sub">
+        La guía que nadie te dio. <strong>No es sobre organización — es sobre lo que hay detrás de verdad.</strong> Para tu espacio y para tu mente. Sin humo. Sin frases vacías.
+      </p>
+      <div class="proof">
+        <div class="pill">100% gratuita</div>
+        <div class="pill">Descarga inmediata</div>
+        <div class="pill">Sin spam, nunca</div>
+        <div class="pill">27.000 personas ya en la comunidad</div>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="form-card">
+      <span class="form-tag">Acceso gratuito inmediato</span>
+
+      <!-- FOTO -->
+      <div class="photo-slot">
+        <img src="foto.png" alt="Desbloquea tu Crecimiento">
+      </div>
+
+      <h2>Descarga gratis<br>la guía completa</h2>
+      <p>Déjame tu email y te la envío ahora mismo. Sin rodeos.</p>
+
+      <form id="form1" onsubmit="submitForm(event,'form1')">
+        <label class="form-label" for="nombre">Tu nombre</label>
+        <input class="form-input" type="text" id="nombre" name="NOMBRE" placeholder="¿Cómo te llamo?" required>
+        <label class="form-label" for="email">Tu email</label>
+        <input class="form-input" type="email" id="email" name="EMAIL" placeholder="tu@email.com" required>
+        <button class="form-btn" type="submit" id="btn1">Quiero mi guía gratis →</button>
+      </form>
+
+      <p class="form-privacy">
+        Sin spam. Sin rollos. Solo contenido real.<br>
+        Te puedes dar de baja cuando quieras, en un clic.
+      </p>
+    </div>
+  </div>
+
+  <!-- QUÉ HAY DENTRO -->
+  <div class="inside">
+    <span class="inside-label">Lo que vas a recibir</span>
+    <h2>Todo lo que necesitas saber.<br><em>Nada que no.</em></h2>
+    <div class="inside-grid">
+      <div class="inside-item">
+        <span class="inside-num">01</span>
+        <h3>La psicología detrás del desorden</h3>
+        <p>Por qué tu cerebro lo genera, lo tolera — y cómo romper el ciclo de verdad.</p>
+      </div>
+      <div class="inside-item">
+        <span class="inside-num">02</span>
+        <h3>Método para el espacio físico</h3>
+        <p>Las 4 fases, zona por zona. Sin perfeccionismo. Sin gran limpieza del sábado.</p>
+      </div>
+      <div class="inside-item">
+        <span class="inside-num">03</span>
+        <h3>Los 7 errores que lo sabotean</h3>
+        <p>Por qué el orden nunca te dura — y el cambio exacto que necesitas hacer.</p>
+      </div>
+      <div class="inside-item">
+        <span class="inside-num">04</span>
+        <h3>Herramientas para la mente</h3>
+        <p>El desorden mental que no se ve pero se paga cada día. Con soluciones concretas.</p>
+      </div>
+      <div class="inside-item">
+        <span class="inside-num">05</span>
+        <h3>Sistema de misiones</h3>
+        <p>Acción real según el tiempo que tienes hoy. 5 minutos, 30, o una tarde completa.</p>
+      </div>
+      <div class="inside-item">
+        <span class="inside-num">06</span>
+        <h3>Sistema de mantenimiento</h3>
+        <p>Los hábitos exactos para que el orden dure. Diario, semanal, mensual.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PARA QUIÉN ES -->
+  <div class="foryou">
+    <div>
+      <span class="foryou-label">Esta guía es para ti si</span>
+      <h2>Llevas tiempo<br>diciéndote<br><em>"mañana ordeno".</em></h2>
+    </div>
+    <ul class="foryou-list">
+      <li class="foryou-item">Has ordenado mil veces y en dos semanas está igual que antes</li>
+      <li class="foryou-item">Sabes que el desorden te afecta pero no entiendes por qué no puedes con él</li>
+      <li class="foryou-item">Tienes la sensación de que tu cabeza también está desordenada, no solo tu casa</li>
+      <li class="foryou-item">Has intentado sistemas de organización que duraron tres días</li>
+      <li class="foryou-item">Te dices "soy desordenado por naturaleza" — y en el fondo sabes que no es verdad</li>
+      <li class="foryou-item">Estás cansado de frases vacías y quieres entender qué te pasa de verdad</li>
+    </ul>
+  </div>
+
+  <!-- CITA -->
+  <div class="quote-block">
+    <div class="quote-line"></div>
+    <div>
+      <p class="quote-text">"No ordenas para tener la casa bonita. Ordenas para recuperar poder. Cada objeto fuera de lugar es una microdecisión pendiente que te roba energía todos los días."</p>
+      <p class="quote-author">— Desbloquea tu Crecimiento</p>
+    </div>
+  </div>
+
+  <!-- BOTTOM CTA -->
+  <div class="bottom-cta">
+    <div>
+      <h2>¿Cuántas veces más<br>vas a decir<br><em>«mañana»?</em></h2>
+      <p>La guía es gratuita. El cambio depende de ti. Pero empieza aquí.</p>
+    </div>
+
+    <!-- SEGUNDO FORMULARIO -->
+    <div class="form-card">
+      <span class="form-tag">Acceso gratuito inmediato</span>
+      <h2>Descarga gratis<br>la guía completa</h2>
+      <p>Tu email. La guía. Ya.</p>
+
+      <form id="form2" onsubmit="submitForm(event,'form2')">
+        <label class="form-label" for="nombre2">Tu nombre</label>
+        <input class="form-input" type="text" id="nombre2" name="NOMBRE" placeholder="¿Cómo te llamo?" required>
+        <label class="form-label" for="email2">Tu email</label>
+        <input class="form-input" type="email" id="email2" name="EMAIL" placeholder="tu@email.com" required>
+        <button class="form-btn" type="submit" id="btn2">Quiero mi guía gratis →</button>
+      </form>
+
+      <p class="form-privacy">
+        Sin spam. Sin rollos. Solo contenido real.<br>
+        Te puedes dar de baja cuando quieras, en un clic.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const BREVO_URL = 'https://e03a2d4e.sibforms.com/serve/MUIFAAbhpKqvmZwXW3b_KQ7HnRxGOZIBv2wY07exFiSlIe-RCqxAn205clpN7gpLHmhf29dalaObCJb8iei9PnFY8R-tO0FEqhV02pnJiI8bbymhtEt7CyG_g0kTXat5YnqVEA38nqqwsyFAdqNbTi-LRDCB0Hv6UHUtjDZOc2T3BlhQtfR7d4ffHdiPoewx6h0LgVmwykqTu37KUw==';
+const REDIRECT = 'https://desbloqueatucrecimiento.github.io/ElDesordenPara/gracias.html';
+
+function submitForm(e, formId) {
+  e.preventDefault();
+  const form = document.getElementById(formId);
+  const btn = form.querySelector('button');
+  const nombre = form.querySelector('[name="NOMBRE"]').value;
+  const email = form.querySelector('[name="EMAIL"]').value;
+
+  btn.textContent = 'Enviando...';
+  btn.disabled = true;
+
+  const iframe = document.createElement('iframe');
+  iframe.name = 'brevo_iframe';
+  iframe.style.display = 'none';
+  document.body.appendChild(iframe);
+
+  const hiddenForm = document.createElement('form');
+  hiddenForm.method = 'POST';
+  hiddenForm.action = BREVO_URL;
+  hiddenForm.target = 'brevo_iframe';
+
+  [['EMAIL', email], ['NOMBRE', nombre], ['locale', 'es'], ['html_type', 'simple']].forEach(([n, v]) => {
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = n;
+    input.value = v;
+    hiddenForm.appendChild(input);
+  });
+
+  document.body.appendChild(hiddenForm);
+  hiddenForm.submit();
+
+  setTimeout(() => {
+    window.location.href = REDIRECT;
+  }, 1500);
+}
+</script>
+</body>
+</html>
